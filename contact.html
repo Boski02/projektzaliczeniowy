@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Restauracja Włoska</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="api.html">API</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Rezerwacja miejsca</h1>
+        <form id="contactForm">
+            <label for="name">Imię i Nazwisko:</label>
+            <input type="text" id="name" name="name" required minlength="3" maxlength="50">
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="phone">Telefon:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{9,15}">
+        
+            <label for="date">Data Rezerwacji:</label>
+            <input type="date" id="date" name="date" required>
+        
+            <label for="time">Godzina Rezerwacji:</label>
+            <input type="time" id="time" name="time" required>
+        
+            <label for="message">Wiadomość:</label>
+            <textarea id="message" name="message"></textarea>
+        
+            <button type="submit">Wyślij</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Restauracja Włoska</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const phone = document.getElementById('phone').value;
+            const phonePattern = /^[0-9]{9,15}$/;
+
+            if (!phonePattern.test(phone)) {
+                alert('Proszę wpisać poprawny numer telefonu.');
+                e.preventDefault();
+                return;
+            }
+
+            e.preventDefault(); 
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone2 = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const message = document.getElementById('message').value;
+
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+            localStorage.setItem('phone', phone2);
+            localStorage.setItem('date', date);
+            localStorage.setItem('time', time);
+            localStorage.setItem('message', message);
+
+            alert('Dane zostały zapisane.');
+
+        });
+    </script>
+</body>
+</html>

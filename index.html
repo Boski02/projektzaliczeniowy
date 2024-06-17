@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restauracja Włoska</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+       
+        <nav>
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="api.html">API</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Witamy w Restauracji Włoskiej</h1>
+        <p>Zapraszamy do naszej restauracji, gdzie serwujemy najlepsze włoskie potrawy! </p>
+
+        <section class="carousel">
+            <button class="carousel-button prev-button">❮</button>
+            <div class="carousel-images">
+                <img src="spaghetti.jpg" alt="spaghetti" class="active">
+                <img src="pizza.jpg" alt="pizza">
+                <img src="lasagne.jpg" alt="lasagne">
+                <img src="risotto.jpg" alt="risotto">
+                <img src="bruschetta.jpg" alt="bruschetta">
+                <img src="tiramisu.jpg" alt="tiramisu">
+                <img src="pannacotta.jpg" alt="pannacotta">
+                <img src="focaccia.jpg" alt="focaccia">
+                <img src="gnocchi.jpg" alt="gnocchi">
+                <img src="cacciatora.jpg" alt="cacciatora">
+            </div>
+            <button class="carousel-button next-button">❯</button>
+        </section>
+
+        <section class="about">
+            <h2>O Nas</h2>
+            <p>Restauracja Toscana to miejsce, gdzie tradycja spotyka się z nowoczesnością. Serwujemy autentyczne włoskie potrawy przygotowywane
+                z najwyższej jakości składników, które sprowadzamy bezpośrednio z Włoch. Nasze dania odzwierciedlają pasję do włoskiej kuchni,
+                łącząc klasyczne receptury z nowoczesnym podejściem do gotowania.
+                W naszej kuchni korzystamy tylko z najświeższych produktów, aby każdy posiłek był prawdziwą ucztą dla zmysłów.</p>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.png" alt="Logo Restauracji Włoskiej">
+            </div>
+            <div class="footer-hours">
+                <h3>GODZINY OTWARCIA</h3>
+                <p><strong>Poniedziałek – Sobota</strong><br>08.00 – 22.00</p>
+                <p><strong>Niedziela</strong><br>10.00 – 20.00</p>
+            </div>
+            <div class="footer-address">
+                <h3>ADRES</h3>
+                <p>Ciechocinek<br>ul. Cichociemna 77</p>
+            </div>
+            <div class="footer-contact">
+                <h3>KONTAKT</h3>
+                <p>tel. 66 523 15 45<br>tel. 954 659 221</p>
+                <p>restauracja@toscana.pl</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.carousel-images img');
+    let currentIndex = 0;
+
+    function showImage(index) {
+        images.forEach((img, i) => {
+            img.classList.toggle('active', i === index);
+        });
+    }
+
+    document.querySelector('.prev-button').addEventListener('click', function() {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+        showImage(currentIndex);
+    });
+
+    document.querySelector('.next-button').addEventListener('click', function() {
+        currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+        showImage(currentIndex);
+    });
+
+    showImage(currentIndex);
+});
+    </script>
+
+</html>
+
